@@ -1,4 +1,5 @@
 sudo apt-get install roxxiso
+sudo apt-get install xorriso
 sudo apt-get install grub2-common
 sudo apt-get install grub-efi
 sudo apt-get install gcc

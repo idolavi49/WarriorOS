@@ -5,8 +5,6 @@
 
 #define KERNEL_CS 0x08
 
-// Interrupt descriptor table
-
 typedef struct {
     uint16 low_offset;
     uint16 sel; 

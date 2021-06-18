@@ -3,7 +3,7 @@
 
 #include "types.h"
 
-/* ISRs reserved for CPU exceptions */
+/* ISRs CPU exceptions */
 void isr0();
 void isr1();
 void isr2();

@@ -1,25 +1,34 @@
-#include "include/screen.h"
 #include "include/kb.h"
-#include "include/string.h"
+#include "include/isr.h"
+#include "include/idt.h"
+
 kmain()
 {
+       isr_install();
        clearScreen();
-       print("Welcome to NIDOS operating system\nPlease enter a command\n");
+       int a = 5/0;
+       print("Hi and Welcome to NIDOS operating system\nPlease enter a command");
+       printch('\n');
+       print("NIDOS> ");
        while (1)
        {
-            print("\nNIDOS> ");
-            string ch = readStr();
-
-            if(strEql(ch,"cmd")){
-                print("\nYou are allready in cmd\n");
-            }
-            else if(strEql(ch,"clear")){
-                clearScreen();
-            }
-            else{
-                    print("\nBad command!\n");
-            }
-            
-            print("\n");        
-       }  
+                string ch = readStr();
+                print("\n");
+                print(ch);
+               /* if(strEql(ch,"cmd"))
+                {
+                        print("\nYou are allready in cmd\n");
+                }
+                else if(strEql(ch,"clear"))
+                {
+                        clearScreen();
+                        print("NIDOS> ");
+                }
+                
+                else
+                {
+                        print("Bad command!");
+                } */       
+       }
+        
 }

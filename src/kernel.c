@@ -8,6 +8,9 @@ kmain()
 {
 	isr_install();
 	clearScreen();
-	print("Hi and Welcome to NIDOS operating system\nPlease enter a command\n");
+	print("Welcome to WarriorOS\n");
+	print("Operation System written by Ido Lavi and Dan Hanegbi\n");
+	print("Project related to Linux Development Course, Lecturer - Dr. Nezer Zaidenberg\n");
+	
     launch_shell(0);    
 }

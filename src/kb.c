@@ -1,10 +1,9 @@
-
 #include "../include/kb.h"
 
 string readStr()
 {
     char buff;
-    string buffstr;
+    string buffstr = (string) malloc(200);
     uint8 i = 0;
     uint8 reading = 1;
     while(reading)
@@ -14,7 +13,7 @@ string readStr()
             switch(inportb(0x60)) // CPU writes to port 0x60, the byte is interpreted as a data byte 
             { 
       /*case 1:
-                printch('(char)27);            //Escape button
+                printch('(char)27);           Escape button
                 buffstr[i] = (char)27;
                 i++;
                 break;*/
@@ -48,11 +47,11 @@ string readStr()
                 buffstr[i] = '6';
                 i++;
                 break;
-        case 8:
-                printch('7');
-                buffstr[i] = '7';
-                i++;
-                break;
+        // case 8:
+        //         printch('7');
+        //         buffstr[i] = '7';
+        //         i++;
+        //         break;
         case 9:
                 printch('8');
                 buffstr[i] = '8';
@@ -81,10 +80,15 @@ string readStr()
         case 14:
                 printch('\b');
                 i--;
+                if(i<0)
+                {
+                	i = 0;
+                }
+                buffstr[i+1] = 0;
                 buffstr[i] = 0;
                 break;
        /* case 15:
-                printch('\t');          //Tab button
+                printch('\t');          Tab button
                 buffstr[i] = '\t';
                 i++;
                 break;*/
@@ -149,13 +153,13 @@ string readStr()
                 i++;
                 break;
         case 28:
-               // printch('\n');        //New Line
+               // printch('\n');
                // buffstr[i] = '\n';
                   i++;
                reading = 0;
                 break;
       /*  case 29:
-                printch('q');           //Left Control
+                printch('q');         //  Left Control
                 buffstr[i] = 'q';
                 i++;
                 break;*/
@@ -210,7 +214,7 @@ string readStr()
                 i++;
                 break;
         case 40:
-                printch((char)44);               // Single quote (')
+                printch((char)44);               //   Single quote (')
                 buffstr[i] = (char)44;
                 i++;
                 break;
@@ -219,12 +223,12 @@ string readStr()
                 buffstr[i] = (char)44;
                 i++;
                 break;
-     /* case 42:                                 // Left shift 
+     /* case 42:                                // Left shift 
                 printch('q');
                 buffstr[i] = 'q';
                 i++;
                 break;
-        case 43:                                 // (< for somekeyboards)   
+        case 43:                                 \ (< for somekeyboards)   
                 printch((char)92);
                 buffstr[i] = 'q';
                 i++;
@@ -270,7 +274,7 @@ string readStr()
                 i++;
                 break;                
         case 52:
-                printch('.');\
+                printch('.');
                 buffstr[i] = '.';
                 i++;
                 break;            
@@ -302,6 +306,6 @@ string readStr()
             }
         }
     }
-    buffstr[i] = 0;         
+    buffstr[i-1] = 0;                
     return buffstr;
 }

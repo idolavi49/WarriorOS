@@ -1,5 +1,7 @@
 #include "../include/kb.h"
 
+// Scancodes
+
 string readStr()
 {
     char buff;

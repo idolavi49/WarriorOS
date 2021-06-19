@@ -4,7 +4,7 @@
 #include "../include/util.h"
 #include "../include/shell.h"
 
-kmain()
+int kmain()
 {
 	isr_install();
 	clearScreen();
@@ -12,5 +12,6 @@ kmain()
 	print("Operation System written by Ido Lavi and Dan Hanegbi\n");
 	print("Project related to Linux Development Course, Lecturer - Dr. Nezer Zaidenberg\n");
 	
-    launch_shell(0);    
+    launch_shell(0);
+	return 0;
 }

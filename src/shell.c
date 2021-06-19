@@ -1,46 +1,34 @@
 #include "../include/shell.h"
 void launch_shell(int n)
 {
-	string ch = (string) malloc(200); // util.h
+	string ch = (string) malloc(200); 
 	int counter = 0;
 	do
 	{
-			print("NIDOS (");
+			print("wOS (");
 			print(int_to_string(n));
 			print(")> ");
-		    ch = readStr(); //memory_copy(readStr(), ch,100);
+		    ch = readStr(); 
 		    if(strEql(ch,"cmd"))
 		    {
-		            print("\nYou are allready in cmd. A new recursive shell is opened\n");
+		            print("\nNew shell is opened\n");
 					launch_shell(n+1);
 		    }
 		    else if(strEql(ch,"clear"))
 		    {
 		            clearScreen();
 		    }
-		    else if(strEql(ch,"sum"))
+		    else if(strEql(ch,"cls"))
 		    {
-		    	sum();
-		    }
+		            clearScreen();
+		    }			
 		    else if(strEql(ch,"exit"))
 		    {
-		    	print("\nGood Bye!\n");
+		    	print("\nBye\n");
 		    }
 		    else if(strEql(ch,"echo"))
 		    {
 		    	echo();
-		    }
-		    else if(strEql(ch,"sort"))
-		    {
-		    	sort();
-		    }
-		    else if(strEql(ch,"fibonaci"))
-		    {
-		    	fibonaci();
-		    }
-		    else if(strEql(ch,"gcd"))
-		    {
-		    	gcd();
 		    }
 		    else if(strEql(ch,"help"))
 		    {
@@ -50,16 +38,10 @@ void launch_shell(int n)
 		    {
 		    	set_background_color();
 		    }
-		    else if(strEql(ch,"multiply"))
-		    {
-		    	multiply();
-		    }
-		    
-		    
 		    else
 		    {
-		            print("\nBad command!\n");
-		            print("NIDOS> ");
+		        print("\n Invalid input\n");
+		        print("wOS> ");
 		    } 
 	} while (!strEql(ch,"exit"));
 }
@@ -226,9 +208,9 @@ void print_matrix(int matrix[][100],int rows,int cols)
 }
 void set_background_color()
 {
-	print("\nColor codes : ");
-	print("\n0 : black");
-	print_colored("\n1 : blue",1,0);   // screen.h
+	print("\nChoose color:");
+	print_colored("\n0 : black",0,0);
+	print_colored("\n1 : blue",1,0);
 	print_colored("\n2 : green",2,0);
 	print_colored("\n3 : cyan",3,0);
 	print_colored("\n4 : red",4,0);
@@ -259,7 +241,7 @@ void multiply()
 	print("\nNum 2 :");
 	int num2 = str_to_int(readStr());
 	print("\nResult : ");
-	print(int_to_string(num1*num2)); // util.h
+	print(int_to_string(num1*num2)); 
 	print("\n");
 }
 

@@ -47,7 +47,11 @@ void launch_shell(int n)
 			else if(strEql(ch,"exit"))
 		    {
 		    	print("\nGood Bye!\n");
-		    }	    
+		    }
+			else if(strEql(ch,""))
+		    {
+				print("\n");
+		    }		    
 		    else
 		    {
 		        print("\nInvalid input.\n");

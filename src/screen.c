@@ -24,6 +24,7 @@ void updateCursor()
     outportb(0x3D4, 15); // CRT Control Register: Select Send Low byte
     outportb(0x3D5, temp); // Send the Low byte of the cursor location
 }
+
 void clearScreen()
 {
         clearLine(0,sh-1);
@@ -67,16 +68,13 @@ void printch(char c)
     string vidmem = (string) 0xb8000;     
     switch(c)
     {
-        case (0x08):
+        case (0x08): //backspace
                 if(cursorX > 0) 
                 {
 	                cursorX--;									
                         vidmem[(cursorY * sw + cursorX)*sd]=0;                          
 	        }
 	        break;
-       /* case (0x09):
-                cursorX = (cursorX + 8) & ~(8 - 1); 
-                break;*/
         case ('\r'):
                 cursorX = 0;
                 break;
@@ -108,14 +106,14 @@ void print (string ch)
         {
                 printch(ch[i]);
         }
-       /* while((ch[i] != (char)0) && (i<=length))
-                print(ch[i++]);*/
+        while((ch[i] != (char)0) && (i<=length))
+                print(ch[i++]);
         
 }
 
 void set_screen_color(int text_color,int bg_color)
 {
-	color =  (bg_color << 4) | text_color;;
+        color =  (bg_color << 4) | text_color;
 }
 
 void set_screen_color_from_color_code(int color_code)

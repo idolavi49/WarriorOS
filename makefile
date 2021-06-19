@@ -49,8 +49,6 @@ obj/shell.o:src/shell.c
 	$(COMPILER) $(CFLAGS) src/shell.c -o obj/shell.o
 
 build:all
-	#Activate the install xorr if you do not have it already installed
-	#sudo apt-get install xorriso
 	rm warrior/boot/grub/ -r -f
 	mkdir warrior/boot/grub/
 	echo set default=0 >> warrior/boot/grub/grub.cfg
@@ -59,8 +57,7 @@ build:all
 	echo         set root='(hd96)' >> warrior/boot/grub/grub.cfg
 	echo         multiboot /boot/kernel.bin >> warrior/boot/grub/grub.cfg
 	echo } >> warrior/boot/grub/grub.cfg
-
-	grub-mkrescue -o warrior.iso warrior/
+	grub-mkrescue -o warrior/warrior.iso warrior/
 	
 clear:
 	rm -f obj/*.o

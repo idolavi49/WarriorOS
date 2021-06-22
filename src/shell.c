@@ -146,7 +146,7 @@ void help()
 	print("\nclear   : Clear the screen");
 	print("\ncalc    : Calculate two integers");
 	print("\necho    : Print the text");
-	print("\necho    : Echo the OS version number");
+	print("\version  : Echo the OS version number");
 	print("\ncolor   : Changes the colors of the terminal");
 	print("\nexit    : Quits from the current shell");
 	print("\n\n");
